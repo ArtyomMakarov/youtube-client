@@ -13,12 +13,13 @@ import { RegistrationModalComponent } from './components/registration-modal/regi
 import { LogoComponent } from './components/logo/logo.component';
 import {YoutubeClientService} from './services/youtube-client.service';
 import { FilterByPipe } from './pipes/filter-by.pipe';
+import { ItemCardBorderColorDirective } from './directives/item-card-border-color.directive';
 // angular-material
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { YoutubeClientComponent } from './components/youtube-client/youtube-client.component';
-import { ItemCardBorderColorDirective } from './components/directives/item-card-border-color.directive';
+
 
 
 

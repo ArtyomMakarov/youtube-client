@@ -1,4 +1,4 @@
-import { Directive, Input, ElementRef, Renderer2, OnInit, OnChanges } from '@angular/core';
+import { Directive, Input, ElementRef, Renderer2, OnChanges } from '@angular/core';
 
 @Directive({
   selector: '[appItemCardBorderColor]'
