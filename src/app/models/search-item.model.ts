@@ -7,19 +7,41 @@ export interface ISearchItem {
     channelId: string;
     title: string;
     description: string;
-    thumbnails: {
-    [key: string]: {
-      url: string;
-      width: number;
-      height: number
-      }
-    }
+    thumbnails: IThumbnails;
+    channelTitle: string;
+    tags: string[];
+    categoryId: string;
+    liveBroadcastContent: string;
+    localized: ILocalized;
+    defaultAudioLanguage: string;
   };
-  channelTitle: string;
-  tags: string[];
-  categoryId: string;
-  liveBroadcastContent: string;
-  localized: {[key: string]: string};
-  defaultAudioLanguage: string;
-  statistics: {[key: string]: string};
+  statistics: IStatistics;
 }
+
+export interface IThumbnails {
+  default: IThumbnail;
+  medium: IThumbnail;
+  high: IThumbnail;
+  standard: IThumbnail;
+  maxres: IThumbnail;
+}
+
+export interface IThumbnail {
+  url: string;
+  width: number;
+  height: number;
+}
+
+export interface ILocalized {
+  title: string;
+  description: string;
+}
+
+export interface IStatistics {
+  viewCount: string;
+  likeCount: string;
+  dislikeCount: string;
+  favoriteCount: string;
+  commentCount: string;
+}
+

@@ -1,1 +1,21 @@
-<p>header works!</p>
+<div class="header">
+  <div class="header-searchWrapper">
+    <app-logo></app-logo>
+    <div clss="header__search-field">
+      <input matInput type="text" class="header__search-field__input" #searchInput>
+      <button class="header__search-field__button" (click)="searchSubmit()">search</button>
+      <button class="header__search-field__settingsButton"><img src="../../../assets/img/filter.png" alt="filter" (click)="showFilterField()"></button>
+    </div>
+    <div class="header__login">
+      <span>Your Name</span>
+      <button class="header__login__button"><img src="../../../assets/img/user.png" alt="user"></button>
+    </div>
+  </div>
+  <div class="header__filter" *ngIf="settingsMode">
+    <span class="header__filter__span_grey">Sorting by:</span>
+    <button (click)="filterItems('date')">date</button>
+    <button (click)="filterItems('count of views')">count of views</button>
+    <span class="header__filter__span_blue">by word or sentance</span>
+    <input type="text" class="header__filter__input" (change)="filterItems(filterInput.value)" #filterInput>
+  </div>
+</div>
