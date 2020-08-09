@@ -14,7 +14,9 @@
   <div class="header__filter" *ngIf="settingsMode">
     <span class="header__filter__span_grey">Sorting by:</span>
     <button (click)="filterItems('date')">date</button>
+    <img src="../../../assets/img/sort-up.png" alt="sort icon" [hidden]="showDateIcon" [ngClass]="{sortIcon: (increase==false), sortIcon_rotate: (increase==true)}">
     <button (click)="filterItems('count of views')">count of views</button>
+    <img src="../../../assets/img/sort-up.png" alt="sort icon" [hidden]="showCountIcon" [ngClass]="{sortIcon: (increase==true), sortIcon_rotate: (increase==false)}">
     <span class="header__filter__span_blue">by word or sentance</span>
     <input type="text" class="header__filter__input" (change)="filterItems(filterInput.value)" #filterInput>
   </div>

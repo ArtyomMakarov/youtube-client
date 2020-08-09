@@ -57,7 +57,7 @@
       color: #2F80ED;
       text-decoration: underline;
       background: #E5E5E5;
-      margin: 0 5px;
+      margin: 0px 5px 0px 2px;
       cursor: pointer;
     }
     &__span_grey{
@@ -71,6 +71,15 @@
       border: none;
     }
   }
+}
+.sortIcon {
+  vertical-align: middle;
+  margin: 0px 10px 0px -5px;
+}
+.sortIcon_rotate {
+  vertical-align: middle;
+  transform: rotate(180deg);
+  margin: 0px 10px 0px -5px;
 }
 
 .header-searchWrapper {

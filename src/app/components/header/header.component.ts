@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, ElementRef, EventEmitter, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +13,10 @@ export class HeaderComponent implements OnInit {
   public filter: EventEmitter<{param1: string, param2: boolean}> = new EventEmitter<{param1: string, param2: boolean}>();
   public settingsMode = 0;
   public increase = true;
+  public showDateIcon = true;
+  public showCountIcon = true;
 
-  constructor() {
+  constructor( private renderer: Renderer2) {
   }
 
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class HeaderComponent implements OnInit {
     }
   }
   filterItems(val: string): void {
+    this.changeSortIcon(val);
     this.increase === true ? this.changeFilterIncrease(val, true) : this.changeFilterIncrease(val, false);
   }
   changeFilterIncrease(val: string, increaseParam: boolean): void {
@@ -41,6 +44,16 @@ export class HeaderComponent implements OnInit {
     } else {
       this.increase = true;
       this.filter.emit({param1: val, param2: false});
+    }
+  }
+  changeSortIcon(val: string): void {
+    if (val === 'date') {
+      this.showCountIcon = true;
+      this.showDateIcon = false;
+    }
+    if (val === 'count of views') {
+      this.showCountIcon = false;
+      this.showDateIcon = true;
     }
   }
 }
