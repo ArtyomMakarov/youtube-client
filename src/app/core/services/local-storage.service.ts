@@ -23,7 +23,7 @@ export class LocalStorageService {
       return null;
     }
   }
-  public static clear(): void {
+  public clear(): void {
     localStorage.clear();
   }
 }
