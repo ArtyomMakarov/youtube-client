@@ -1,0 +1,90 @@
+.header{
+  background: #E5E5E5;
+  position: relative;
+  min-height:100px;
+
+  &__search-field {
+    margin-left: 20px;
+    padding-left: 20px;
+    &__input {
+      width: 369px;
+      height: 25px;
+      border: none;
+      background: white;
+    }
+    &__button {
+      background: #2F80ED;
+      border-radius: 0 4px 4px 0;
+      border: 1px solid #2F80ED;
+      height: 26px;
+      padding: 5px;
+      width: 80px;
+      text-align: center;
+      vertical-align: center;
+      color: white;
+      cursor: pointer;
+    }
+    &__settingsButton {
+      width: 25px;
+      height: 25px;
+      margin-left: 10px;
+      background-color: #2F80ED;
+      border-radius: 5px;
+      border: none;
+      padding: 1px 1px;
+      box-shadow: 0 0 7px rgb(67 143 222 / 90%);
+      cursor: pointer;
+    }
+  }
+
+  &__login{
+    position: absolute;
+    right: 140px;
+    margin-left: 310px;
+    &__button{
+      border: none;
+      padding: 0;
+      vertical-align: middle;
+      margin: 5px;
+      background: #E5E5E5;
+    }
+  }
+  &__filter{
+    height: 50px;
+    width: fit-content;
+    margin: 0 auto;
+    button{
+      border: none;
+      color: #2F80ED;
+      text-decoration: underline;
+      background: #E5E5E5;
+      margin: 0 5px 0 2px;
+      cursor: pointer;
+    }
+    &__span_grey{
+      color: grey;
+    }
+    &__span_blue{
+      color: #2F80ED;
+      margin-right: 10px;
+    }
+    &__input{
+      border: none;
+    }
+  }
+}
+.sortIcon {
+  vertical-align: middle;
+  margin: 0 10px 0px -5px;
+}
+.sortIcon_rotate {
+  vertical-align: middle;
+  transform: rotate(180deg);
+  margin: 0 10px 0px -5px;
+}
+
+.header-searchWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

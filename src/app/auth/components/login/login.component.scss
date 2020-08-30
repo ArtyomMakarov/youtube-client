@@ -1,0 +1,23 @@
+.loginForm {
+  display: block;
+  margin: 40px auto;
+  padding: 20px;
+  width: 350px;
+  height: 220px;
+  background: #F2F2F2;
+  position: relative;
+  &__button {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: #2F80ED;
+    border-radius: 5px;
+    width: 120px;
+    height: 32px;
+    color: white;
+  }
+}
+.mat-form-field {
+  width: 350px;
+  display: block;
+}

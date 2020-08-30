@@ -1,4 +1,6 @@
-const response = {
+import { ISearchResponse} from './youtube/models/search-response.model';
+
+const response: ISearchResponse = {
   pageInfo: {
     totalResults: 10,
     resultsPerPage: 10
@@ -749,5 +751,3 @@ const response = {
   ]
 };
 export default response;
-
-
