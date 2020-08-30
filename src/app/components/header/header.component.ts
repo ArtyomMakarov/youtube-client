@@ -1,52 +1,49 @@
-import { Component, OnInit, Output, ViewChild, ElementRef, EventEmitter, Renderer2 } from '@angular/core';
+import { Component, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @ViewChild('searchInput') searchInputRef: ElementRef;
-  @Output()
-  private showResult: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output()
-  public filter: EventEmitter<{param1: string, param2: boolean}> = new EventEmitter<{param1: string, param2: boolean}>();
+
+  @Output() private showResult: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() public filter: EventEmitter<{filterParam: string, increaseParam: boolean}> = new EventEmitter<{filterParam: string,
+    increaseParam: boolean}>();
+
   public settingsMode = 0;
   public increase = true;
   public showDateIcon = true;
   public showCountIcon = true;
 
-  constructor( private renderer: Renderer2) {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
-  showFilterField(): void {
+  public showFilterField(): void {
     this.settingsMode === 0 ? this.settingsMode = 1 : this.settingsMode = 0;
   }
 
-  searchSubmit(): void {
+  public searchSubmit(): void {
     if (this.searchInputRef.nativeElement.value) {
       this.showResult.emit(true);
     } else {
       this.showResult.emit(false);
     }
   }
-  filterItems(val: string): void {
+  public filterItems(val: string): void {
     this.changeSortIcon(val);
     this.increase === true ? this.changeFilterIncrease(val, true) : this.changeFilterIncrease(val, false);
   }
-  changeFilterIncrease(val: string, increaseParam: boolean): void {
+  public changeFilterIncrease(val: string, increaseParam: boolean): void {
     if (increaseParam) {
       this.increase = false;
-      this.filter.emit({param1: val, param2: true});
+      this.filter.emit({filterParam: val, increaseParam: true});
     } else {
       this.increase = true;
-      this.filter.emit({param1: val, param2: false});
+      this.filter.emit({filterParam: val, increaseParam: false});
     }
   }
-  changeSortIcon(val: string): void {
+  public changeSortIcon(val: string): void {
     if (val === 'date') {
       this.showCountIcon = true;
       this.showDateIcon = false;

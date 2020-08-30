@@ -9,10 +9,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
-import { RegistrationModalComponent } from './components/registration-modal/registration-modal.component';
 import { LogoComponent } from './components/logo/logo.component';
 import {YoutubeClientService} from './services/youtube-client.service';
-import { FilterByPipe } from './pipes/filter-by.pipe';
+import { FilterItemsByParamsPipe } from './pipes/filterItemsByParams.pipe';
 import { ItemCardBorderColorDirective } from './directives/item-card-border-color.directive';
 // angular-material
 import { MatInputModule } from '@angular/material/input';
@@ -30,11 +29,10 @@ import { YoutubeClientComponent } from './components/youtube-client/youtube-clie
     HeaderComponent,
     SearchResultsComponent,
     SearchItemComponent,
-    RegistrationModalComponent,
     LogoComponent,
     YoutubeClientComponent,
     ItemCardBorderColorDirective,
-    FilterByPipe
+    FilterItemsByParamsPipe
   ],
   imports: [
     BrowserModule,
@@ -45,7 +43,7 @@ import { YoutubeClientComponent } from './components/youtube-client/youtube-clie
     MatCardModule,
     HttpClientModule
   ],
-  providers: [YoutubeClientService, FilterByPipe],
+  providers: [YoutubeClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,1 @@
-<app-search-item [items]="getItems" *ngIf="showMode"></app-search-item>
+<app-search-item [items]="getItems | filterItemsByParams: filterParams" *ngIf="showMode"></app-search-item>

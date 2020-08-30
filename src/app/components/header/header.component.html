@@ -1,8 +1,8 @@
 <div class="header">
   <div class="header-searchWrapper">
     <app-logo></app-logo>
-    <div clss="header__search-field">
-      <input matInput type="text" class="header__search-field__input" #searchInput>
+    <div class="header__search-field">
+      <input matInput type="text" class="header__search-field__input" #searchInput title="search_field">
       <button class="header__search-field__button" (click)="searchSubmit()">search</button>
       <button class="header__search-field__settingsButton"><img src="../../../assets/img/filter.png" alt="filter" (click)="showFilterField()"></button>
     </div>
@@ -18,6 +18,6 @@
     <button (click)="filterItems('count of views')">count of views</button>
     <img src="../../../assets/img/sort-up.png" alt="sort icon" [hidden]="showCountIcon" [ngClass]="{sortIcon: (increase==true), sortIcon_rotate: (increase==false)}">
     <span class="header__filter__span_blue">by word or sentance</span>
-    <input type="text" class="header__filter__input" (change)="filterItems(filterInput.value)" #filterInput>
+    <input type="text" class="header__filter__input" (change)="filterItems(filterInput.value)" #filterInput title="filter_word">
   </div>
 </div>

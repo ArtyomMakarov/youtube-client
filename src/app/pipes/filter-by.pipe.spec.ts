@@ -1,8 +1,8 @@
-import { FilterByPipe } from './filter-by.pipe';
+import { FilterItemsByParamsPipe } from './filterItemsByParams.pipe';
 
-describe('FilterByPipe', () => {
+describe('FilterItemsByParamsPipe', () => {
   it('create an instance', () => {
-    const pipe = new FilterByPipe();
+    const pipe = new FilterItemsByParamsPipe();
     expect(pipe).toBeTruthy();
   });
 });

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {ISearchItem} from '../../models/search-item.model';
 
 @Component({
@@ -6,15 +6,12 @@ import {ISearchItem} from '../../models/search-item.model';
   templateUrl: './search-item.component.html',
   styleUrls: ['./search-item.component.scss']
 })
-export class SearchItemComponent implements OnInit {
-  @Input ()
-  private items: Array<ISearchItem>;
+export class SearchItemComponent {
+  @Input () private items: Array<ISearchItem>;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-  get getItems(): Array<ISearchItem> {
+  public get getItems(): Array<ISearchItem> {
     return this.items;
   }
 

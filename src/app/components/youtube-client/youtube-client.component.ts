@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-youtube-client',
   templateUrl: './youtube-client.component.html',
   styleUrls: ['./youtube-client.component.scss']
 })
-export class YoutubeClientComponent implements OnInit {
+export class YoutubeClientComponent {
   public showMode: boolean;
-  public filterParam: {param1: string, param2: boolean};
+  public filterParams: {filterParam: string, increaseParam: boolean};
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
-  showResult(res: boolean): void {
+  public showResult(res: boolean): void {
     this.showMode = res;
   }
-  filterItems(params: {param1: string, param2: boolean}): void {
-    this.filterParam = params;
+  public filterItems(params: {filterParam: string, increaseParam: boolean}): void {
+    this.filterParams = params;
   }
 }
