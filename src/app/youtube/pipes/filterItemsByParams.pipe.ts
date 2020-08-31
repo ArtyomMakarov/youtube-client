@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {ISearchItem} from '../models/search-item.model';
 
 @Pipe({
-  name: 'filterBy'
+  name: 'filterItemsByParams'
 })
-export class FilterByPipe implements PipeTransform {
+export class FilterItemsByParamsPipe implements PipeTransform {
 
   public transform(items: Array<ISearchItem>,
                    params: {filterParam: string, increaseParam: boolean}): Array<ISearchItem> {

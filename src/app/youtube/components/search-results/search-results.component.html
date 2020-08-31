@@ -1,1 +1,1 @@
-<app-search-item [items]="getItems | filterBy: filterParams" *ngIf="showSearchResults"></app-search-item>
+<app-search-item [items]="getItems | filterItemsByParams: filterParams" *ngIf="showSearchResults"></app-search-item>

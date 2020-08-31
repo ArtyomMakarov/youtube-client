@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { YoutubeClientService } from './services/youtube-client.service';
-import { FilterByPipe } from './pipes/filter-by.pipe';
+import { FilterItemsByParamsPipe } from './pipes/filterItemsByParams.pipe';
 import { ItemCardBorderColorDirective } from './directives/item-card-border-color.directive';
 import { YoutubeClientComponent } from './components/youtube-client/youtube-client.component';
 import { CoreModule } from '../core/core.module';
@@ -24,7 +24,7 @@ import { YoutubeRoutingModule} from './youtube-routing.module';
     MainPageComponent,
     DetailedInformationComponent,
     DetailedInfoPageComponent,
-    FilterByPipe
+    FilterItemsByParamsPipe
   ],
   imports: [
     CommonModule,
