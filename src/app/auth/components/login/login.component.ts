@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, Validators, FormGroup} from '@angular/forms';
 import { LocalStorageService } from '../../../core/services/local-storage.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../../../core/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   @ViewChild('passwordInput') private passwordElemRef: ElementRef;
   public customerForm: FormGroup;
 
-  constructor(private localService: LocalStorageService, private router: Router) { }
+  constructor(private localService: LocalStorageService, private router: Router,
+              private loginService: LoginService) { }
 
   public ngOnInit(): void {
     this.customerForm = new FormGroup({
@@ -30,7 +32,8 @@ export class LoginComponent implements OnInit {
     const loginObj: {[key: string]: string} = {
       login: this.loginElemRef.nativeElement.value,
       password: this.passwordElemRef.nativeElement.value};
-    this.localService.set('login', loginObj);
+    this.loginService.userLogIn('login', loginObj);
+    this.loginService.isAuth.next(true);
     this.router.navigate(['/search']);
   }
 }

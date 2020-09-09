@@ -1,7 +1,7 @@
 export interface ISearchItem {
   kind: string;
   etag: string;
-  id: string;
+  id: {[key: string]: string};
   snippet: {
     publishedAt: string;
     channelId: string;

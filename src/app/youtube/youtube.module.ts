@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
-import { YoutubeClientService } from './services/youtube-client.service';
+import { YoutubeHTTPService } from './services/youtubeHTTP.service';
 import { FilterItemsByParamsPipe } from './pipes/filterItemsByParams.pipe';
 import { ItemCardBorderColorDirective } from './directives/item-card-border-color.directive';
 import { YoutubeClientComponent } from './components/youtube-client/youtube-client.component';
@@ -35,6 +35,6 @@ import { YoutubeRoutingModule} from './youtube-routing.module';
   exports: [
     YoutubeClientComponent
   ],
-  providers: [YoutubeClientService, DetailedInfoService]
+  providers: [YoutubeHTTPService, DetailedInfoService]
 })
 export class YoutubeModule { }

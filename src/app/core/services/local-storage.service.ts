@@ -1,10 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
-
   constructor() { }
 
   public set(key: string, data: { [key: string]: string }): void {
@@ -14,14 +13,8 @@ export class LocalStorageService {
       console.error('Error saving to localStorage', e);
     }
   }
-
-  public get(key: string): object | null {
-    try {
-      return JSON.parse(localStorage.getItem(key));
-    } catch (e) {
-      console.error('Error getting data from localStorage', e);
-      return null;
-    }
+  public get(str: string): {[key: string]: string} {
+    return JSON.parse(localStorage.getItem(str));
   }
   public clear(): void {
     localStorage.clear();

@@ -2,14 +2,13 @@
   <div class="header-searchWrapper">
     <app-logo></app-logo>
     <div class="header__search-field">
-      <input matInput type="text" class="header__search-field__input" #searchInput title="search_field">
-      <button class="header__search-field__button" (click)="searchSubmit()">search</button>
+      <input matInput type="text" class="header__search-field__input" #searchInput title="search_field" placeholder="What do you want to search?" [disabled]="!userAuth">
       <button class="header__search-field__settingsButton"><img src="../../../../assets/img/filter.png" alt="filter" (click)="showFilterField()"></button>
     </div>
     <div class="header__login">
-      <span>Your Name</span>
+      <span>{{userName || 'Your Name'}}</span>
       <button class="header__login__button"><img src="../../../../assets/img/user.png" alt="user"></button>
-      <button mat-raised-button color="primary" (click)="logOut()">Log out</button>
+      <button mat-raised-button color="primary" (click)="logOut()" *ngIf="userAuth">Log out</button>
     </div>
   </div>
   <div class="header__filter" *ngIf="settingsMode">

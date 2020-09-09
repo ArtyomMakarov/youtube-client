@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderOutputPropsService } from './core/services/header-output-props.service';
+import { LoginService } from './core/services/login.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { HeaderOutputPropsService } from './core/services/header-output-props.se
     AuthModule,
     NoopAnimationsModule
   ],
-  providers: [HeaderOutputPropsService],
+  providers: [HeaderOutputPropsService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

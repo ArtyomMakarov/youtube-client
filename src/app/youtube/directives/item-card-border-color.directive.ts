@@ -22,7 +22,7 @@ export class ItemCardBorderColorDirective implements OnChanges {
   }
 
   public ngOnChanges(): void {
-    const TIME: number = new Date(CommonConstants.DATE).getTime() - new Date(this.date).getTime();
+    const TIME: number = new Date().getTime() - new Date(this.date).getTime();
     const ONEDAY_IN_MS: number = CommonConstants.ONEDAY_IN_MS;
     const DAYS: number = Math.ceil(TIME / ONEDAY_IN_MS);
     this.setStyle(DAYS);
