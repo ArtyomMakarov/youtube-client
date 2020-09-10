@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
 
   public canActivate(): Observable<boolean> | Promise<boolean> | boolean {
     console.log('check Auth guard');
-    if (localStorage.getItem('login')) {
+    if (localStorage.getItem('logInfo')) {
       return true;
     } else {
       this.router.navigate(['/auth']);

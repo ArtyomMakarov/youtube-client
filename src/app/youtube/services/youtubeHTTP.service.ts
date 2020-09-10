@@ -17,14 +17,9 @@ export class YoutubeHTTPService {
   }
 
   private loadItemsResponse(): Observable<ISearchResponse> {
-    let idString: string = '';
-    this.items.forEach( (item, i) => {
-      if (i < this.items.length - 1) {
-        idString += item.id.videoId + ',';
-      } else {
-        idString += item.id.videoId;
-      }
-    });
+    let idString: string = this.items.reduce((sum, current, index) =>
+                                              index === 0 ? sum : sum + ',' + current.id.videoId,
+                                             '');
     return this.http2.get<ISearchResponse>(`videos?&id=${idString}&part=snippet,statistics`);
   }
 

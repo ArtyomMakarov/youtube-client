@@ -6,28 +6,27 @@ import { LocalStorageService } from './local-storage.service';
   providedIn: 'root'
 })
 export class LoginService {
-  private loginName$: BehaviorSubject<string> = new BehaviorSubject('Your Name');
-  private authSubject$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  constructor(private localStorageService: LocalStorageService) { }
-  public get isAuth(): BehaviorSubject<boolean> {
-    let userInfo: {[key: string]: string} = this.localStorageService.get('login');
-    if (userInfo) {
-      this.authSubject$.next(true);
-    }
-    return this.authSubject$;
+  private loginInfo$: BehaviorSubject<{ userInfo: { [key: string]: string }, auth: boolean }> =
+    new BehaviorSubject({userInfo: {}, auth: false});
+
+  constructor(private localStorageService: LocalStorageService) {
   }
-  public userLogIn(key: string, data: { [key: string]: string }): void {
-    this.localStorageService.set(key, data);
-    this.loginName$.next(data.login);
+
+  public userLogIn(logInfo: { userInfo: { [key: string]: string }, auth: boolean }): void {
+    this.localStorageService.set('logInfo', logInfo);
+    this.loginInfo$.next(logInfo);
   }
-  public userLogOut(str: string): void {
-    this.loginName$.next(str);
+
+  public userLogOut(logInfo: { userInfo: {}, auth: boolean }): void {
+    this.localStorageService.clear();
+    this.loginInfo$.next(logInfo);
   }
-  public get getLoginName(): BehaviorSubject<string> {
-    let userInfo: {[key: string]: string} = this.localStorageService.get('login');
-    if (userInfo) {
-      this.loginName$.next(userInfo.login);
-    }
-    return this.loginName$;
+
+  public get getLoginInfo(): BehaviorSubject<{ userInfo: { [key: string]: string }, auth: boolean }> {
+    return this.loginInfo$;
+  }
+
+  public get getLocalStorageInfo(): { userInfo: { [key: string]: string }, auth: boolean } {
+    return this.localStorageService.get('logInfo');
   }
 }

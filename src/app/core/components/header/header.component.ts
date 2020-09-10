@@ -27,12 +27,22 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnInit(): void {
-    this.loginService.isAuth.subscribe(authBoolean => {
-      this.userAuth = authBoolean;
+    this.loginService.getLoginInfo.subscribe(logInfo => {
+      if (logInfo.userInfo.login) {
+        this.userName = logInfo.userInfo.login;
+      } else {
+        this.userName = 'Your Name';
+      }
+      this.userAuth = logInfo.auth;
     });
-    this.loginService.getLoginName.subscribe(login => {
-      this.userName = login;
-    });
+
+    let loginInfo: {userInfo: {[key: string]: string },
+      auth: boolean} = this.loginService.getLocalStorageInfo;
+
+    if (loginInfo) {
+      this.userAuth = loginInfo.auth;
+      this.userName = loginInfo.userInfo.login;
+    }
   }
 
   public ngAfterViewInit(): void {
@@ -75,9 +85,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     }
   }
   public logOut(): void {
-      this.localService.clear();
-      this.loginService.isAuth.next(false);
-      this.loginService.userLogOut('Your Name');
+      this.loginService.userLogOut({userInfo: {}, auth: false});
       this.router.navigate(['']);
   }
 }

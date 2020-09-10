@@ -32,8 +32,7 @@ export class LoginComponent implements OnInit {
     const loginObj: {[key: string]: string} = {
       login: this.loginElemRef.nativeElement.value,
       password: this.passwordElemRef.nativeElement.value};
-    this.loginService.userLogIn('login', loginObj);
-    this.loginService.isAuth.next(true);
+    this.loginService.userLogIn({userInfo: loginObj, auth: true});
     this.router.navigate(['/search']);
   }
 }
