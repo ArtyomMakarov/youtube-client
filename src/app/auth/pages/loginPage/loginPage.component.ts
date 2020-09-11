@@ -6,10 +6,10 @@ import { LoginService } from '../../../core/services/login.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './loginPage.component.html',
+  styleUrls: ['./loginPage.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginPageComponent implements OnInit {
   @ViewChild('loginInput') private loginElemRef: ElementRef;
   @ViewChild('passwordInput') private passwordElemRef: ElementRef;
   public customerForm: FormGroup;

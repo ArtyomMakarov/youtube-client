@@ -5,10 +5,10 @@ import {ISearchItem} from '../../models/search-item.model';
 
 @Component({
   selector: 'app-search-results',
-  templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.scss']
+  templateUrl: './searchResultsPage.component.html',
+  styleUrls: ['./searchResultsPage.component.scss']
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsPageComponent implements OnInit {
   protected itemsArr: Array<ISearchItem>;
   public filterParams: {filterParam: string, increaseParam: boolean};
 

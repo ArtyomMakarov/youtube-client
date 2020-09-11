@@ -4,13 +4,13 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { SharedModule } from '../shared/shared.module';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NotFoundPageComponent } from './pages/not-found-page/notFoundPage.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     LogoComponent,
-    NotFoundComponent
+    NotFoundPageComponent
   ],
   imports: [
     CommonModule,

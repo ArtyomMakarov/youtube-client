@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './core/guards/auth.guard';
-import {NotFoundComponent} from './core/components/not-found/not-found.component';
+import {NotFoundPageComponent} from './core/pages/not-found-page/notFoundPage.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule),
     canActivate: [AuthGuard]
   },
-  { path: '**', component: NotFoundComponent}
+  { path: '**', component: NotFoundPageComponent}
 ];
 
 @NgModule({
