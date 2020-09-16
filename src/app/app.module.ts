@@ -11,6 +11,8 @@ import { AuthModule } from './auth/auth.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderOutputPropsService } from './core/services/header-output-props.service';
 import { LoginService } from './core/services/login.service';
+import {StoreModule} from '@ngrx/store';
+import { appReducers } from './redux/reducers/app.reducer';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { LoginService } from './core/services/login.service';
     SharedModule,
     YoutubeModule,
     AuthModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    StoreModule.forRoot(appReducers)
   ],
   providers: [HeaderOutputPropsService, LoginService],
   bootstrap: [AppComponent]

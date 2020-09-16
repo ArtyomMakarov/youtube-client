@@ -1,38 +1,62 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf = "customItem; else youtubeCard">
   <div class="backButton">
     <a [routerLink]="['/search']"><img src="../../../../assets/img/back_button.png" alt="back icon"></a>
   </div>
   <div class="detailedInformation">
     <div class="detailedInformation__img">
-      <img [src]="item.snippet.thumbnails.standard.url" alt="video img">
+      <img [src]="customItem.img" alt="video img">
     </div>
-    <div class="detailedInformation__info" [appItemCardBorderColor]="item.snippet.publishedAt">
+    <div class="detailedInformation__info" [appItemCardBorderColor]="customItem.date">
       <div class="header">
-        <h2>{{item.snippet.title}}</h2>
-        <span>{{item.snippet.publishedAt | date: 'fullDate'}}</span>
+         <h2>{{customItem.title}}</h2>
+         <span>{{customItem.date | date: 'fullDate'}}</span>
       </div>
       <div class="description">
         <h3>Description:</h3>
-        <p>{{item.snippet.description}}</p>
-      </div>
-      <div class="icons-wrapper">
-        <div class="icon">
-          <img src="../../../../assets/img/viewed.png" alt="photo of views">
-          <span>{{item.statistics.viewCount}}</span>
-        </div>
-        <div class="icon">
-          <img src="../../../../assets/img/liked.png" alt="photo of likes">
-          <span>{{item.statistics.likeCount}}</span>
-        </div>
-        <div class="icon">
-          <img src="../../../../assets/img/dislike.png" alt="photo of likes">
-          <span>{{item.statistics.dislikeCount}}</span>
-        </div>
-        <div class="icon">
-          <img src="../../../../assets/img/Group%209.png" alt="photo of likes">
-          <span>{{item.statistics.commentCount}}</span>
-        </div>
+        <p>{{customItem.description}}</p>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #youtubeCard>
+  <div class="wrapper">
+    <div class="backButton">
+      <a [routerLink]="['/search']"><img src="../../../../assets/img/back_button.png" alt="back icon"></a>
+    </div>
+    <div class="detailedInformation">
+      <div class="detailedInformation__img">
+        <img [src]="item.snippet.thumbnails.standard.url" alt="video img">
+      </div>
+      <div class="detailedInformation__info" [appItemCardBorderColor]="item.snippet.publishedAt">
+        <div class="header">
+          <h2>{{item.snippet.title}}</h2>
+          <span>{{item.snippet.publishedAt | date: 'fullDate'}}</span>
+        </div>
+        <div class="description">
+          <h3>Description:</h3>
+          <p>{{item.snippet.description}}</p>
+        </div>
+        <div class="icons-wrapper">
+          <div class="icon">
+            <img src="../../../../assets/img/viewed.png" alt="photo of views">
+            <span>{{item.statistics.viewCount}}</span>
+          </div>
+          <div class="icon">
+            <img src="../../../../assets/img/liked.png" alt="photo of likes">
+            <span>{{item.statistics.likeCount}}</span>
+          </div>
+          <div class="icon">
+            <img src="../../../../assets/img/dislike.png" alt="photo of likes">
+            <span>{{item.statistics.dislikeCount}}</span>
+          </div>
+          <div class="icon">
+            <img src="../../../../assets/img/Group%209.png" alt="photo of likes">
+            <span>{{item.statistics.commentCount}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+

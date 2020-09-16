@@ -6,6 +6,11 @@ import { LoginService } from '../../services/login.service';
 import {YoutubeHTTPService } from '../../../youtube/services/youtubeHTTP.service';
 import {fromEvent} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
+import { Store} from '@ngrx/store';
+import {IState} from '../../../redux/state.models';
+import {AddYoutubeCardsAction} from '../../../redux/actions/items.actions';
+import {selectYoutubeCards} from '../../../redux/selectors/items.selectors';
+import {ISearchItem} from '../../../youtube/models/search-item.model';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +28,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   constructor( private headerService: HeaderOutputPropsService, private router: Router,
                private localService: LocalStorageService, private loginService: LoginService,
-               private youtubeHttpService: YoutubeHTTPService) {
+               private youtubeHttpService: YoutubeHTTPService, private store: Store<IState>) {
   }
 
   public ngOnInit(): void {
@@ -52,7 +57,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         const SEARCH_STRING: string = this.searchInputRef.nativeElement.value;
         if (SEARCH_STRING.length >= 3) {
           this.youtubeHttpService.loadFullResponse(SEARCH_STRING)
-            .subscribe(res => this.headerService.setItemsArr(res.items));
+            .subscribe(res => {
+              this.store.dispatch(new AddYoutubeCardsAction ( res.items ) );
+            });
+          //this.headerService.setItemsArr(res.items)
         }
       });
   }

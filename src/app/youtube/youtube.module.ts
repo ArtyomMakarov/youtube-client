@@ -6,8 +6,6 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
 import { YoutubeHTTPService } from './services/youtubeHTTP.service';
 import { FilterItemsByParamsPipe } from './pipes/filterItemsByParams.pipe';
 import { ItemCardBorderColorDirective } from './directives/item-card-border-color.directive';
-import { YoutubeClientComponent } from './components/youtube-client/youtube-client.component';
-import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { DetailedInformationPageComponent } from './pages/detailed-information-page/detailedInformationPage.component';
 import { DetailedInfoService } from './services/detailed-info.service';
@@ -17,19 +15,14 @@ import { YoutubeRoutingModule} from './youtube-routing.module';
   declarations: [
     SearchResultsPageComponent,
     SearchItemComponent,
-    YoutubeClientComponent,
     ItemCardBorderColorDirective,
     DetailedInformationPageComponent,
     FilterItemsByParamsPipe
   ],
   imports: [
     CommonModule,
-    CoreModule,
     SharedModule,
     YoutubeRoutingModule
-  ],
-  exports: [
-    YoutubeClientComponent
   ],
   providers: [YoutubeHTTPService, DetailedInfoService]
 })

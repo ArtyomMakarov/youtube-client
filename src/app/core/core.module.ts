@@ -5,12 +5,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { SharedModule } from '../shared/shared.module';
 import { NotFoundPageComponent } from './pages/not-found-page/notFoundPage.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     LogoComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    AdminPageComponent
   ],
   imports: [
     CommonModule,
