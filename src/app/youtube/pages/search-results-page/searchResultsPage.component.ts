@@ -35,6 +35,7 @@ export class SearchResultsPageComponent implements OnInit {
 
    this.store.pipe(select(selectCustomCards))
       .subscribe(res => {
+        console.log(res);
         this.customCards = res.customCards;
       });
   }

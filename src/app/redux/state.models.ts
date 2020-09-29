@@ -2,8 +2,8 @@ import { ISearchItem } from '../youtube/models/search-item.model';
 import { ICustomCard } from '../youtube/models/customCard.model';
 
 export interface IState {
-  youtubeCards: ICustomCardsState;
-  customCards: IYoutubeCardsState;
+  youtubeCards: IYoutubeCardsState;
+  customCards: ICustomCardsState;
 }
 
 export interface ICustomCardsState {
