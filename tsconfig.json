@@ -13,5 +13,15 @@
     {
       "path": "./tsconfig.spec.json"
     }
-]
+],
+  "compilerOptions": {
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  },
+  "bazelOptions": {
+    "devmodeTargetOverride": "es2018",
+    "googmodule": true
+  }
 }
