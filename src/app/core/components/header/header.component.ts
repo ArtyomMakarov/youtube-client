@@ -60,7 +60,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
             .subscribe(res => {
               this.store.dispatch(new AddYoutubeCardsAction ( res.items ) );
             });
-          //this.headerService.setItemsArr(res.items)
         }
       });
   }

@@ -13,4 +13,10 @@ describe('ConfigService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  describe('getKey', () => {
+    it('should be equal string', () => {
+      expect(service.getKey).toBeInstanceOf(String);
+    });
+  });
 });

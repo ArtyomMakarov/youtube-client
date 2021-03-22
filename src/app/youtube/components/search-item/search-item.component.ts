@@ -14,19 +14,22 @@ export class SearchItemComponent {
   @Input () private customCards: Array<ICustomCard>;
 
   constructor(private detailedService: DetailedInfoService, private router: Router) { }
+
   public get getItems(): Array<ISearchItem> {
     return this.items;
   }
+
   public get getCustomCards(): Array<ICustomCard> {
     return this.customCards;
   }
+
   public goToDetailedInfo(item: ISearchItem): void {
     this.detailedService.set(item);
     this.router.navigate(['search', 'info', item.id]);
   }
+
   public goToCustomItemDetailedInfo(item: ICustomCard): void {
     this.detailedService.setCustomItem(item);
     this.router.navigate(['search', 'info', item.id]);
   }
-
 }
