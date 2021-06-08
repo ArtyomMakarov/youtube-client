@@ -1,0 +1,14 @@
+<form class="loginForm" [formGroup]="customerForm">
+  <h2>Login</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Login</mat-label>
+    <input matInput type="text" formControlName="login" #loginInput title="login">
+    <mat-error *ngIf="hasError('login', 'required')">Login is required.</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input matInput type="password" formControlName="password" #passwordInput title="password">
+    <mat-error *ngIf="hasError('password', 'required')">Password is required.</mat-error>
+  </mat-form-field>
+  <button mat-raised-button class="loginForm__button" [disabled]="!customerForm.valid" (click)="saveToLocalStorage()">Login</button>
+</form>

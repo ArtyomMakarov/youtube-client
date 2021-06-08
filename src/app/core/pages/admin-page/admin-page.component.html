@@ -1,0 +1,24 @@
+<form class="newCardForm" [formGroup]="customerForm">
+  <h2>Create new card</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input class="newCardForm__input" matInput type="text" formControlName="title" #titleInput title="title">
+    <mat-error *ngIf="hasError('title', 'required')">Title is required.</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput type="text" formControlName="description" #descriptionInput title="description">
+    <mat-error *ngIf="hasError('description', 'required')">Description is required.</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Img</mat-label>
+    <input matInput type="text" formControlName="img" #imgInput title="img">
+    <mat-error *ngIf="hasError('img', 'required')">Img is required.</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Link video</mat-label>
+    <input matInput type="text" formControlName="linkVideo" #linkVideoInput title="linkVideo">
+    <mat-error *ngIf="hasError('linkVideo', 'required')">Link video is required.</mat-error>
+  </mat-form-field>
+  <button mat-raised-button class="newCardForm__button" [disabled]="!customerForm.valid" (click)="createNewCard()">Create</button>
+</form>
